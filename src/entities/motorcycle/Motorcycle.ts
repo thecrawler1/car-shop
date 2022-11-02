@@ -16,7 +16,7 @@ export default class Motorcycle extends Vehicle {
 
   toDTO(): IMotorcycle {
     return {
-      ...this.toDTO(),
+      ...super.toDTO(),
       category: this.category.value,
       engineCapacity: this.engineCapacity.value,
     };

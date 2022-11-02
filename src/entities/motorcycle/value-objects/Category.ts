@@ -1,9 +1,9 @@
-import { categoryType } from '../../../interfaces/IMotorcycle';
+import { CategoryType } from '../../../interfaces/IMotorcycle';
 import BaseType from '../../../types/BaseType';
 import InvalidCategoryError from './errors/InvalidCategoryError';
 
-export default class Category extends BaseType<categoryType> {
-  static create(value: categoryType): Category {
+export default class Category extends BaseType<CategoryType> {
+  static create(value: CategoryType): Category {
     const category = new Category(value);
 
     category.validate();

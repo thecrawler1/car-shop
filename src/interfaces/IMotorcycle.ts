@@ -1,8 +1,8 @@
 import { IVehicle } from './IVehicle';
 
-export type categoryType = 'Street' | 'Custom' | 'Trail';
+export type CategoryType = 'Street' | 'Custom' | 'Trail';
 
 export interface IMotorcycle extends IVehicle {
-  category: categoryType;
+  category: CategoryType;
   engineCapacity: number;
 }

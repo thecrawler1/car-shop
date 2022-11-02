@@ -19,6 +19,7 @@ export default abstract class String extends BaseType<string> {
 
   private validateLength(): void {
     if (this.value.length < this.MIN_LEN || this.value.length > this.MAX_LEN) {
+      console.log(this.value, this.value.length);
       throw new InvalidStringLengthError(this.MIN_LEN, this.MAX_LEN);
     }
   }

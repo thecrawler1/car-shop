@@ -7,7 +7,7 @@ export default class CreateCarService implements ICreateCarService {
   constructor(private readonly carModel: IModel<ICar>) {}
 
   async perform(car: Car): Promise<Car> {
-    const dto = await this.carModel.create(car.toDTO());
+    const dto: ICar = await this.carModel.create(car.toDTO());
 
     return new Car(dto);
   }

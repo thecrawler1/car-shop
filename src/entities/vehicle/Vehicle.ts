@@ -1,7 +1,6 @@
 import { IVehicle } from '../../interfaces/IVehicle';
 import BuyValue from './value-objects/BuyValue';
 import Color from './value-objects/Color';
-import Id from './value-objects/Id';
 import Model from './value-objects/Model';
 import Status from './value-objects/Status';
 import Year from './value-objects/Year';
@@ -12,20 +11,17 @@ export default abstract class Vehicle {
   protected readonly _color: Color;
   protected readonly _buyValue: BuyValue;
   protected readonly _status?: Status;
-  protected readonly _id?: Id;
+  protected readonly _id?: string;
 
   constructor(vehicleDTO: IVehicle) {
     this._model = Model.create(vehicleDTO.model);
     this._year = Year.create(vehicleDTO.year);
     this._color = Color.create(vehicleDTO.color);
     this._buyValue = BuyValue.create(vehicleDTO.buyValue);
+    this._id = vehicleDTO._id;
 
     if (vehicleDTO.status || vehicleDTO.status === false) {
       this._status = Status.create(vehicleDTO.status);
-    }
-
-    if (vehicleDTO.id) {
-      this._id = Id.create(vehicleDTO.id);
     }
   }
 
@@ -36,7 +32,7 @@ export default abstract class Vehicle {
       color: this.color.value,
       buyValue: this.buyValue.value,
       status: this.status?.value,
-      id: this.id?.value,
+      _id: this.id,
     };
   }
 
@@ -60,7 +56,7 @@ export default abstract class Vehicle {
     return this._status;
   }
 
-  get id(): Id | undefined {
+  get id(): string | undefined {
     return this._id;
   }
 }

@@ -4,5 +4,5 @@ export interface IVehicle {
   status?: boolean;
   buyValue: number;
   model: string;
-  id?: string;
+  _id?: string;
 }

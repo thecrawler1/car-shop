@@ -1,4 +1,5 @@
 import Car from '../entities/car/Car';
+import { ICar } from '../interfaces/ICar';
 import IController from '../interfaces/IController';
 import IGetAllCarsService from '../interfaces/IGetAllCarsService';
 import IRequest from '../interfaces/IRequest';
@@ -10,7 +11,8 @@ export default class GetAllCarsController implements IController {
 
   async handle(_request: IRequest): Promise<IResponse> {
     const cars: Car[] = await this.getAllCarsService.perform();
+    const dtos: ICar[] = cars.map((car) => car.toDTO());
 
-    return ok(cars);
+    return ok(dtos);
   }
 }

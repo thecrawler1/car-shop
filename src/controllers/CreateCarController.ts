@@ -14,7 +14,7 @@ export default class CreateCarController implements IController {
 
     const car: Car = await this.createCarService.perform(new Car(request.payload));
 
-    return created(car);
+    return created(car.toDTO());
   }
 
   private static validateRequest(request: IRequest) {

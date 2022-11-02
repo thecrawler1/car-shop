@@ -13,3 +13,10 @@ export function ok(data: any): IResponse {
     statusCode: 200,
   };
 }
+
+export function noContent(): IResponse {
+  return {
+    data: undefined,
+    statusCode: 204,
+  };
+}
